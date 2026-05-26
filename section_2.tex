@@ -1,0 +1,51 @@
+\section{Estado del Arte y Antecedentes}
+
+\subsection{2.1 Mitigación de Debris Orbital}
+
+Resulta revelador observar cómo el incremento exponencial de objetos en LEO ha pasado de ser una preocupación marginal a un riesgo sistémico en menos de una década. Aunque los enfoques tempranos se centraron principalmente en la prevención de fragmentaciones explosivas, la realidad actual demanda estrategias más proactivas ante el despliegue masivo de constelaciones.
+
+\cite{Ailor2022} ofrece un panorama sólido de los impactos acumulados en el entorno LEO, destacando cómo las mejores prácticas de mitigación post-misión siguen aplicándose de forma inconsistente. En muchos casos estudiados, los operadores priorizan el tiempo operativo sobre la disposición controlada, lo que tiende a dejar satélites inactivos en órbitas congestionadas durante periodos más largos de lo recomendable. No obstante, cabe matizar que algunas megaconstelaciones recientes han demostrado avances notables en maniobras autónomas de evitación, aunque su escalabilidad a densidades futuras permanece incierta.
+
+\begin{table}[t]
+\centering
+\caption{Resumen comparativo de técnicas de mitigación de debris orbital}
+\label{tab:tecnicas_mitigacion}
+\begin{tabular}{lccp{5cm}}
+\hline
+Técnica & Madurez & Reducción Estimada & Limitaciones Principales \\
+\hline
+Disposición 25-años & Alta & Moderada & Insuficiente para megaconstelaciones \\
+Disposición 5-años & Media & Alta & Costo de propelente \\
+Maniobras autónomas & Alta & Variable & Dependencia de SSA precisa \\
+ADR (Active Removal) & Baja-Media & Potencial alta & Complejidad técnica y económica \\
+Diseño pasivación & Alta & Preventiva & No resuelve legado existente \\
+\hline
+\end{tabular}
+\end{table}
+
+Particularmente llamativo es el hecho de que las simulaciones más recientes tienden a coincidir en un punto crítico: sin intervenciones coordinadas, el riesgo de síndrome de Kessler podría materializarse en ciertas bandas orbitales antes de 2035. Las propuestas en este trabajo buscan precisamente superar las limitaciones de las técnicas aisladas mediante integración con consideraciones energéticas.
+
+\subsection{2.2 Eficiencia Energética en Enlaces NTN}
+
+Uno de los desafíos persistentes que surge al analizar sistemas NTN radica en equilibrar cobertura global con restricciones severas de potencia. Los satélites LEO operan bajo ciclos de eclipse frecuentes y limitaciones de generación solar, lo que convierte la gestión energética en un factor determinante de viabilidad.
+
+\cite{Gupta2025} presentan técnicas traffic-aware de apagado selectivo de payloads que logran ahorros significativos al desactivar nodos redundantes de forma inteligente. En escenarios de tráfico variable, estos enfoques parecen sugerir reducciones de consumo cercanas al 40\% en constelaciones densas, aunque su efectividad depende fuertemente de la precisión en las predicciones de demanda. 
+
+Complementando esta visión, \cite{Wang2025} ofrecen una revisión comprehensiva de las oportunidades en NTN para 6G, subrayando cómo el beam hopping adaptativo y la optimización orbit-aware emergen como herramientas prometedoras. Resulta interesante constatar que, en muchos casos estudiados, las mejoras en eficiencia energética no solo extienden la vida útil de los satélites sino que indirectamente contribuyen a reducir maniobras innecesarias y, por ende, el riesgo de generar debris.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig2.png}
+\caption{Tendencias de consumo energético promedio en constelaciones LEO/NTN (2020-2025) bajo diferentes estrategias operativas. Se incluyen curvas baseline y con optimización traffic-aware.}
+\label{fig:tendencias_energia}
+\end{figure}
+
+Lejos de ser un asunto resuelto, la integración de estas técnicas con restricciones orbitales dinámicas sigue presentando brechas importantes que el presente trabajo aborda de forma conjunta.
+
+\subsection{2.3 Marcos Regulatorios y Estándares}
+
+Lejos de constituir un marco unificado, la gobernanza actual del espacio muestra una fragmentación notable entre recomendaciones voluntarias y regulaciones nacionales emergentes. \cite{Bennett2025} enfatiza con claridad la necesidad de abordar la mitigación a lo largo de todo el ciclo de vida del satélite, desde el diseño hasta la desorbitación, algo que muchas normativas actuales todavía tratan de forma superficial.
+
+\cite{Wang2025} conectan estos aspectos regulatorios con las direcciones futuras de NTN en 6G, proponiendo que la sostenibilidad debe convertirse en un requisito de arquitectura más que en una consideración posterior. No obstante, cabe matizar que la brecha entre estándares técnicos (como los del 3GPP para NTN) y las obligaciones ambientales reales persiste en varios dominios clave, especialmente en lo relativo a responsabilidad compartida en entornos multi-operador.
+
+Esta revisión del estado del arte revela una oportunidad clara: desarrollar soluciones técnicas que no solo cumplan con los marcos existentes sino que contribuyan activamente a su evolución hacia estándares más exigentes y holísticos. Las siguientes secciones del artículo detallan precisamente cómo avanzar en esa dirección mediante propuestas concretas y evaluables.

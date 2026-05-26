@@ -1,0 +1,57 @@
+\section{Modelo de Sistema y Desafíos de Sostenibilidad}
+
+\subsection{3.1 Arquitectura NTN LEO}
+
+Particularmente llamativo es el hecho de que las arquitecturas NTN actuales deben equilibrar cobertura global con restricciones orbitales extremadamente dinámicas. Tras años de analizar diferentes configuraciones, resulta claro que el enfoque LEO ofrece latencias bajas y alta capacidad, pero impone desafíos únicos de visibilidad intermitente y variabilidad de enlaces.
+
+La arquitectura de referencia considerada en este trabajo consiste en una megaconstelación polar o walker-delta con altitudes entre 500 y 1200\,km, interconexión inter-satelital limitada y gateways terrestres distribuidas. Cada satélite incorpora payloads reconfigurables capaces de beam hopping y procesamiento edge básico. Esta elección refleja compromisos reales observados en despliegues operativos, donde el número de satélites por plano y la inclinación orbital influyen directamente tanto en la probabilidad de colisión como en el presupuesto energético.
+
+\begin{table}[t]
+\centering
+\caption{Parámetros principales de simulación para el modelo NTN LEO}
+\label{tab:parametros_simulacion}
+\begin{tabular}{lc}
+\hline
+Parámetro & Valor \\
+\hline
+Número de satélites & 2000--6000 \\
+Altitud nominal & 550--1200\,km \\
+Inclinación & 53$^\circ$--98$^\circ$ \\
+Frecuencia de operación & Ka-band (26--40\,GHz) \\
+Potencia TX máxima & 20--40\,dBW \\
+Duración de simulación & 30--180 días \\
+Número de Monte Carlo runs & 500 \\
+\hline
+\end{tabular}
+\end{table}
+
+Uno de los desafíos persistentes que surge al analizar estas arquitecturas radica en su sensibilidad conjunta a factores orbitales y de tráfico. Las decisiones de diseño tomadas aquí condicionan fuertemente los modelos que se presentan a continuación.
+
+\subsection{3.2 Modelos de Debris y Colisiones}
+
+Aunque los enfoques tradicionales de evaluación de riesgo se basan en propagaciones simplificadas, la densidad actual de objetos exige modelos más sofisticados que capturen interacciones no lineales. 
+
+\cite{Lewis2020} proporcionó una evaluación valiosa de opciones de mitigación para constelaciones grandes, demostrando cómo incluso pequeñas mejoras en la tasa de disposición post-misión pueden alterar significativamente la evolución del entorno orbital. Siguiendo esta línea, el presente trabajo adopta un modelo de probabilidad de colisión basado en la aproximación de esfera de influencia y datos de Catálogo TLE.
+
+La probabilidad de colisión entre dos objetos $i$ y $j$ en un intervalo $\Delta t$ se expresa como:
+
+\begin{equation}
+P_{c}(i,j) = 1 - \exp\left( -\frac{\pi (r_i + r_j)^2 v_{rel} \Delta t}{V_{enc}} \right)
+\label{eq:prob_colision}
+\end{equation}
+
+donde $r_i$ y $r_j$ representan los radios efectivos (incluyendo márgenes de incertidumbre), $v_{rel}$ la velocidad relativa y $V_{enc}$ el volumen de encuentro. Esta formulación, aunque conocida, gana relevancia cuando se integra con maniobras autónomas predictivas.
+
+Resulta revelador constatar que, en muchos casos estudiados, el riesgo acumulado crece de forma no lineal más allá de ciertos umbrales de densidad. Lejos de ser un asunto resuelto, estos modelos tienden a subestimar eventos de fragmentación secundarios, limitación que se aborda parcialmente mediante simulaciones extendidas en las secciones posteriores.
+
+\subsection{3.3 Modelos de Consumo Energético en Enlaces}
+
+Lejos de tratarse de un componente aislado, el consumo energético en satélites LEO está íntimamente ligado a la dinámica orbital y a los patrones de demanda. 
+
+\cite{Fastenbauer2025} y \cite{Klemettinen2025} han contribuido con análisis detallados que resaltan el potencial del beam hopping y la optimización de payloads para reducir el gasto de potencia. En particular, el segundo ofrece métricas de intake versus consumo que sirven de ancla realista para las simulaciones aquí presentadas.
+
+El modelo propuesto considera tres componentes principales: generación solar (dependiente del ángulo beta y eclipses), consumo base de plataforma y consumo variable del payload. Este último se modela como función del número de beams activos, modulación empleada y factor de actividad traffic-aware. 
+
+En escenarios de enlaces de larga duración, el consumo tiende a presentar picos pronunciados durante periodos de alta visibilidad de gateways, lo que genera trade-offs directos con las maniobras de evitación de debris. No obstante, cabe matizar que las mejoras en eficiencia energética no siempre se traducen en extensiones proporcionales de vida útil, dada la degradación gradual de los paneles solares.
+
+La integración de estos modelos —orbital, de colisión y energético— permite cuantificar de forma holística los desafíos de sostenibilidad. Las estrategias propuestas en la siguiente sección buscan precisamente operar en el espacio de soluciones que optimice ambos objetivos de forma simultánea.

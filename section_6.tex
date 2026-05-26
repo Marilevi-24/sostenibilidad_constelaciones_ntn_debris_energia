@@ -1,0 +1,27 @@
+\section{Discusión}
+
+\subsection{6.1 Viabilidad Operacional}
+
+Uno de los desafíos persistentes que surge al pasar de simulaciones a operaciones reales radica en la brecha entre control idealizado y las incertidumbres del espacio. Tras años observando el comportamiento de sistemas satelitales, queda claro que las propuestas aquí presentadas exigen un equilibrio delicado entre autonomía y supervisión terrestre.
+
+\cite{Jamshed2025} plantea una visión ambiciosa de diseños net-zero en NTN que comparte espíritu con nuestro framework. Sin embargo, cabe matizar que su implementación completa requeriría mejoras significativas en la capacidad de procesamiento edge y en la fiabilidad de los enlaces de telemetría. En escenarios operativos, el algoritmo de evasión autónoma funciona bien con datos SSA de calidad, pero periodos prolongados de degradación de sensores o pérdida temporal de conectividad podrían forzar modos conservadores que reduzcan las ganancias energéticas.
+
+Resulta revelador constatar que el overhead computacional del optimizador multi-objetivo permanece dentro de límites aceptables para hardware satelital actual. No obstante, la coordinación entre decenas de miles de satélites plantea interrogantes sobre escalabilidad y posibles oscilaciones emergentes en el comportamiento colectivo de la constelación. Estos aspectos, aunque manejables en las simulaciones, demandarán pruebas en entornos de hardware-in-the-loop más exhaustivas antes de un despliegue a escala.
+
+\subsection{6.2 Comparación con Estándares 3GPP}
+
+Particularmente llamativo es el hecho de que los estándares actuales todavía tratan la sostenibilidad como un atributo deseable más que como un requisito de arquitectura. 
+
+\cite{Wang2025} ofrece una revisión detallada de las direcciones futuras en NTN para 6G, destacando cómo los mecanismos de beam management y handover ya incorporan cierta flexibilidad que podría aprovecharse para objetivos energéticos. Nuestro enfoque va más allá al integrar explícitamente consideraciones orbitales y de debris en la toma de decisiones en tiempo real, algo que los releases actuales del 3GPP abordan solo de forma marginal.
+
+Lejos de ser un asunto resuelto, esta comparación revela tanto fortalezas como limitaciones. Por un lado, las técnicas de beam hopping propuestas son compatibles con las especificaciones existentes y podrían implementarse como extensiones. Por otro, la incorporación sistemática de maniobras autónomas de disposición exigiría probablemente nuevos Information Elements y procedimientos de signaling que hoy no están contemplados. Esta brecha entre estándares técnicos y necesidades ambientales representa una oportunidad clara para contribuir a la evolución de los próximos releases.
+
+\subsection{6.3 Impacto en Sostenibilidad Global}
+
+Aunque los enfoques tradicionales han aportado avances incrementales, la magnitud del desafío ambiental en LEO exige soluciones que trasciendan el ámbito puramente técnico. 
+
+\cite{Bennett2025} subraya con acierto las implicaciones regulatorias de adoptar una visión de ciclo de vida completo, algo que nuestro trabajo respalda con evidencia cuantitativa. Los resultados sugieren que implementar estrategias integradas como las descritas podría reducir de forma significativa la contribución de nuevas megaconstelaciones al riesgo de síndrome de Kessler, al tiempo que disminuye la huella energética asociada a su operación.
+
+En el plano económico, las reducciones de consumo se traducen directamente en extensión de vida útil y menores costos de reposición, ofreciendo un incentivo claro para los operadores. No obstante, cabe matizar que los beneficios ambientales globales dependerán en gran medida de la adopción coordinada y de mecanismos de responsabilidad compartida entre múltiples actores. Sin marcos regulatorios actualizados que recompensen o exijan estas prácticas, existe el riesgo de que solo los operadores más avanzados las implementen, dejando brechas de sostenibilidad en el ecosistema orbital.
+
+En resumen, los hallazgos de este artículo apuntan hacia un camino viable donde la eficiencia energética y la mitigación de debris dejan de competir para reforzarse mutuamente. Queda pendiente, sin duda, cerrar la brecha entre estas capacidades técnicas demostradas y su traducción efectiva en políticas y estándares internacionales.

@@ -1,0 +1,17 @@
+{
+    "fig1.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB y gris técnico #4A4A4A, sin sombras, sin gradientes, sin texto incrustado..."
+    },
+    "fig2.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB y gris técnico #4A4A4A, negro para líneas y texto de ejes. Gráfico de líneas múltiples mostrando tendencias de consumo energético (eje Y: potencia promedio en W o % normalizado) vs tiempo/años (eje X: 2020-2025). Curvas comparativas: baseline (alta), traffic-aware (media), beam hopping optimizado (baja). Incluir marcadores de puntos clave, leyenda clara con estilos de línea diferenciados (sólida, dashed, dotted). Estilo limpio IEEE, sin sombras, sin gradientes, sin texto incrustado dentro del gráfico, solo ejes y leyenda técnica precisa."
+    },
+    "fig3.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB y gris técnico #4A4A4A, negro para barras y líneas. Gráfico de barras agrupadas comparando Baseline vs Propuesta en dos métricas: Número de maniobras evasivas y Riesgo de colisión acumulado (%). Incluir etiquetas de porcentaje de reducción sobre las barras de la propuesta. Ejes claros, leyenda simple, estilo limpio IEEE, sin sombras, sin gradientes."
+    },
+    "fig4.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB y gris técnico #4A4A4A, negro para curvas. Gráfico de curvas de Pareto (eje X: Riesgo de debris normalizado, eje Y: Consumo energético normalizado). Cuatro curvas/marcadores: Baseline, Beam Hopping, Maniobras Autónomas, Propuesta Integrada. Marcar frente de Pareto con línea punteada. Puntos clave anotados externamente, leyenda clara, estilo vectorial preciso IEEE, sin sombras, sin gradientes."
+    },
+    "fig5.png": {
+        "prompt_ia": "2D technical vector diagram, engineering schematic, flat design, minimalista, fondo blanco puro, colores azul cobalto #0047AB y gris técnico #4A4A4A, negro para líneas y flechas. Diagrama conceptual de trade-offs y viabilidad mostrando tres ejes: Viabilidad Operacional, Compatibilidad con Estándares, e Impacto en Sostenibilidad Global. Representación mediante un triángulo de viabilidad con la propuesta integrada en la zona óptima, comparada con baselines. Incluir flechas de interdependencia y anotaciones técnicas mínimas externas. Estilo vectorial limpio IEEE, sin sombras, sin gradientes."
+    }
+}

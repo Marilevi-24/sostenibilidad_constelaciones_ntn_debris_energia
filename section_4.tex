@@ -1,0 +1,55 @@
+\section{Propuesta de Estrategias de Mitigación}
+
+\subsection{4.1 Protocolos de Disposición y Maniobras Autónomas}
+
+Uno de los desafíos persistentes que surge al operar megaconstelaciones radica en anticipar conflictos orbitales sin comprometer la vida útil del satélite. Tras revisar múltiples enfoques, queda claro que las maniobras reactivas resultan insuficientes ante la densidad proyectada.
+
+El protocolo propuesto combina predicción proactiva con disposición acelerada. Cada satélite evalúa continuamente el riesgo de colisión utilizando datos SSA actualizados y decide entre maniobras mínimas de evasión o una secuencia controlada de descenso orbital cuando se acerca al fin de misión. Particularmente llamativo es el hecho de que integrar predicciones de tráfico futuro permite reducir maniobras innecesarias en un porcentaje significativo.
+
+\begin{algorithm}[t]
+\caption{Algoritmo de Evasión y Disposición Autónoma}
+\label{alg:evasion}
+\begin{algorithmic}[1]
+\State \textbf{Input:} Posición actual, TLEs cercanos, horizonte temporal $T$
+\State \textbf{Output:} Acción (Maniobra / Disposición / Ninguna)
+\For{each time step $t$}
+    \State Calcular $P_c$ usando Eq.~\ref{eq:prob_colision}
+    \If{$P_c > \theta_{alto}$}
+        \State Ejecutar maniobra mínima de evasión
+    \ElsIf{fin de vida útil cercano}
+        \State Iniciar secuencia de disposición controlada
+    \Else
+        \State Mantener operación nominal
+    \EndIf
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+Este algoritmo prioriza soluciones de bajo costo energético, conectando directamente con las optimizaciones que se describen a continuación.
+
+\subsection{4.2 Optimización de Consumo en Beam Hopping y Payload}
+
+Resulta revelador observar cómo pequeñas decisiones en la gestión del payload pueden generar diferencias sustanciales en el presupuesto energético global. Aunque los enfoques tradicionales mantienen todos los beams activos, esta rigidez resulta insostenible en entornos LEO.
+
+Se propone un esquema de beam hopping orbit-aware que ajusta dinámicamente la configuración de beams según la posición orbital, el ángulo solar y la demanda prevista. \cite{MartinezGost2025} inspira la integración de información orbital en el proceso de optimización, mientras que \cite{Alnahdi2025} aporta técnicas eficientes para minimizar el consumo en procesamiento edge satelital.
+
+El mecanismo selecciona subsets de beams activos y modula su potencia en función de un índice de prioridad que combina visibilidad de usuarios y costo energético instantáneo. En muchos casos estudiados, este enfoque logra ahorros superiores al 35\% durante periodos de eclipse sin degradación perceptible de QoS.
+
+\subsection{4.3 Framework Integrado de Sostenibilidad}
+
+Lejos de ser un asunto resuelto, la verdadera sostenibilidad exige tratar debris y consumo energético como objetivos acoplados en lugar de independientes. 
+
+\cite{Jamshed2025} proporciona una visión valiosa de diseños net-zero en NTN que sirve de inspiración para el framework aquí desarrollado. La propuesta combina los protocolos de la Subsección 4.1 con la optimización energética de la 4.2 bajo un esquema multi-objetivo.
+
+La función objetivo principal se define como:
+
+\begin{equation}
+\min \quad J = w_1 \cdot R_{debris} + w_2 \cdot E_{total} + w_3 \cdot (1 - QoS_{norm})
+\label{eq:funcion_objetivo}
+\end{equation}
+
+donde $R_{debris}$ representa el riesgo acumulado de generación de debris, $E_{total}$ el consumo energético normalizado a lo largo del ciclo de vida, y $QoS_{norm}$ la calidad de servicio normalizada. Los pesos $w_i$ se ajustan dinámicamente según fase operacional y requisitos regulatorios.
+
+Este framework incorpora un módulo de aprendizaje por refuerzo ligero que permite a la constelación adaptarse a condiciones cambiantes. No obstante, cabe matizar que su implementación real requerirá validación exhaustiva en entornos de simulación de alta fidelidad y, eventualmente, pruebas en órbita.
+
+Las secciones siguientes evalúan precisamente el rendimiento de estas propuestas frente a baselines convencionales, cuantificando los trade-offs y validando su contribución a una operación más sostenible de las constelaciones NTN.
